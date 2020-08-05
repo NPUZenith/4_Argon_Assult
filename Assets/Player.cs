@@ -17,6 +17,17 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		ProcessTranslation();
+		ProcessRotation();
+	}
+
+	private void ProcessRotation()
+	{
+		transform.localRotation = Quaternion.Euler(30f, 30f, 0);
+	}
+
+	private void ProcessTranslation()
+	{
 		float xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 		float xOffset = xThrow * speed * Time.deltaTime;
 		float rawXPos = transform.localPosition.x + xOffset;
