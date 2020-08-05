@@ -439,7 +439,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4506005834309730, guid: d39aa54444e381c49b0421030f8df357, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4506005834309730, guid: d39aa54444e381c49b0421030f8df357, type: 2}
       propertyPath: m_LocalPosition.z
@@ -469,29 +469,9 @@ Prefab:
       propertyPath: m_Name
       value: Player Ship
       objectReference: {fileID: 0}
-    - target: {fileID: 4506005834309730, guid: d39aa54444e381c49b0421030f8df357, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d39aa54444e381c49b0421030f8df357, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1333736471 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1346203083687786, guid: d39aa54444e381c49b0421030f8df357,
-    type: 2}
-  m_PrefabInternal: {fileID: 1218402729}
---- !u!114 &1333736472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1333736471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eda6c64d36d06641a38835caf9a1c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1333736474 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4506005834309730, guid: d39aa54444e381c49b0421030f8df357,
