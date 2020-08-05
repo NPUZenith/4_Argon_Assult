@@ -4,33 +4,31 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
-	[Tooltip("In ms^-1")][SerializeField] float speed = 20f;
+	[Header("General")]
+	[Tooltip("In ms^-1")][SerializeField] float controlSpeed = 20f;
 	[Tooltip("In m")][SerializeField] float xRange = 4f;
 	[Tooltip("In m")][SerializeField] float yRange = 4f;
 	
+	[Header("Screen-Position Based")]
 	[SerializeField] float positionPitchFactor = -5f;
-	[SerializeField] float controlPitchFactor = -20f;
 	[SerializeField] float positionYawFactor = 5f;
+
+	[Header("Control-throw Based")]
+	[SerializeField] float controlPitchFactor = -20f;
 	[SerializeField] float controlRollFactor = -20f;
 
 	float xThrow, yThrow;
+	bool isControlEnabled = true;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		ProcessTranslation();
-		ProcessRotation();
-	}
-
-	void OnTriggerEnter(Collider collider)
-	{
-		print("Collided");
+		if (isControlEnabled)
+		{
+			ProcessTranslation();
+			ProcessRotation();
+		}
 	}
 
 	private void ProcessRotation()
@@ -51,15 +49,21 @@ public class Player : MonoBehaviour {
 	private void ProcessTranslation()
 	{
 		xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-		float xOffset = xThrow * speed * Time.deltaTime;
+		float xOffset = xThrow * controlSpeed * Time.deltaTime;
 		float rawXPos = transform.localPosition.x + xOffset;
 		float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
 		
 		yThrow = CrossPlatformInputManager.GetAxis("Vertical");
-		float yOffset = yThrow * speed * Time.deltaTime;
+		float yOffset = yThrow * controlSpeed * Time.deltaTime;
 		float rawYPos = transform.localPosition.y + yOffset;
 		float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
 
 		transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+	}
+
+	void OnPlayerDeath() //called by string reference
+	{
+		isControlEnabled = false;
+		print("Controls stopped");
 	}
 }

@@ -524,16 +524,6 @@ Prefab:
       propertyPath: m_Name
       value: Player Ship
       objectReference: {fileID: 0}
-    - target: {fileID: 65152113928589094, guid: d39aa54444e381c49b0421030f8df357,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54139741685139084, guid: d39aa54444e381c49b0421030f8df357,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d39aa54444e381c49b0421030f8df357, type: 2}
   m_IsPrefabParent: 0
