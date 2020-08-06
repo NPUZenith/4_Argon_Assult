@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 82828920984361116}
   - component: {fileID: 114873302544588806}
   m_Layer: 0
-  m_Name: Enemy Death Fx
+  m_Name: Enemy DeathFx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
