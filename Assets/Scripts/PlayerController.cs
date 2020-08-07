@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour {
 	[Tooltip("In ms^-1")][SerializeField] float controlSpeed = 20f;
 	[Tooltip("In m")][SerializeField] float xRange = 4f;
 	[Tooltip("In m")][SerializeField] float yRange = 4f;
-	
+	[SerializeField] GameObject[] guns;
+
 	[Header("Screen-Position Based")]
 	[SerializeField] float positionPitchFactor = -5f;
 	[SerializeField] float positionYawFactor = 5f;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			ProcessTranslation();
 			ProcessRotation();
+			ProcessFiring();
 		}
 	}
 
@@ -66,4 +68,25 @@ public class PlayerController : MonoBehaviour {
 		isControlEnabled = false;
 		print("Controls stopped");
 	}
+
+	void ProcessFiring()
+    {
+		if (CrossPlatformInputManager.GetButton("Fire1"))
+        {
+			SetGunsActive(true);
+        }
+		else
+        {
+			SetGunsActive(false);
+        }
+    }
+
+	private void SetGunsActive(bool isActive)
+    {
+		foreach (GameObject gun in guns)
+        {
+			var emissionModule = gun.GetComponent<ParticleSystem>().emission;
+			emissionModule.enabled = isActive;
+        }
+    }
 }
